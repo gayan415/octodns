@@ -5,6 +5,7 @@
 *.pyc
 .coverage
 .env
+.vscode/
 /config/
 /build/
 coverage.xml

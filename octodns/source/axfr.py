@@ -202,7 +202,10 @@ class ZoneFileSource(AxfrBaseSource):
         self._zone_records = {}
 
     def _load_zone_file(self, zone_name):
-        zonefiles = listdir(self.directory)
+        zonefiles_with_ext = listdir(self.directory)
+        zonefiles = []
+        for filename in zonefiles_with_ext:
+            zonefiles.append(filename.replace('.txt', ''))
         if zone_name in zonefiles:
             try:
                 z = dns.zone.from_file(join(self.directory, zone_name),
